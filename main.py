@@ -3,32 +3,44 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors as mpcolors
 
-hsv_filter = {
+"""
+Define HSV filtering interval
+Array of dictionaries with mask intervals
+min and max define hue interval to be considered
+"""
+hsv_filters = [{
+    # To be set by seeding method
     "min": [0, 0, 0],
     "max": [179, 179, 255]
-}
+}]
 
 
-def apply_mask(image, hsv_filter):
+"""
+Applies mask filtering in a given image
+image: np.matrix - Input image
+hsv_filter: list - List containing dictionaries with HSV filtering interval
+"""
+def apply_mask(image: np.matrix, hsv_filters: list) -> None:
     new_image = np.zeros([image.shape[0], image.shape[1]])
-    for x in range(image.shape[0]):
-        for y in range(image.shape[1]):
-            for i in range(3):
-                if (image[x, y][i] < hsv_filter["min"][i] or
-                        image[i] > hsv_filter["max"][i]):
-                    continue
-            new_image[x, y] = 1
+    for filter in hsv_filters:
+        for x in range(image.shape[0]):
+            for y in range(image.shape[1]):
+                for i in range(3):
+                    if (image[x, y][i] < filter["min"][i] or
+                            image[i] > filter["max"][i]):
+                        continue
+                new_image[x, y] = 1
 
     return new_image
 
 
-def convert_rgb_hsv(image):
-    hsv_image = np.zeros([image.shape[0], image.shape[1]], np.uint8)
+"""
+Convert image from RGB to HSV color spectrum
+image: np.matrix - Input image
+return: np.matrix - Image in HSV
+"""
+def convert_rgb_hsv(image: np.matrix) -> np.matrix:
     # Conversion function
-    return hsv_image
-
-
-def convert_rgb_hsv_mpl(image):
     return mpcolors.rgb_to_hsv(image)
 
 
