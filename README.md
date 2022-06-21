@@ -8,7 +8,13 @@ The main objective of the project is to design an algorithm that is capable of i
 
 ## Input Images
 
-Input images will be road acquired images by real vehicles. The dataset used can be found in INSERIR LINK PARA O DATASET
+Input images will be road acquired images by real vehicles. The dataset chosed by the development team is the [KITTI-Road/Lane Detection Evaluation 2013](https://www.kaggle.com/datasets/tryingit/roadlane-detection-evaluation-2013?resource=download). It has been created in collaboration with Jannik Fritsch and Tobias Kuehnl from Honda Research Institute Europe GmbH. The main reason for that decision is the lane uniformity visually shown in the dataset, helping in the implementation tests. Some images can be seen in "Dataset" folder in this repository.
+
+Other datasets found:
+- [CurveLanes](https://github.com/SoulmateB/CurveLanes)
+- [TuSimple](https://github.com/TuSimple/tusimple-benchmark)
+- [Robust-Lane-Detection](https://github.com/qinnzou/Robust-Lane-Detection/blob/master/README.md)
+- [CULane](https://xingangpan.github.io/projects/CULane.html)
 
 ## Step by Step
 
