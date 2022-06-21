@@ -3,6 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors as mpcolors
 
+
+seed_path = ""
+
 """
 Define HSV filtering interval
 Array of dictionaries with mask intervals
@@ -34,15 +37,11 @@ def apply_mask(image: np.matrix, hsv_filters: list) -> None:
     return new_image
 
 
-"""
-Convert image from RGB to HSV color spectrum
-image: np.matrix - Input image
-return: np.matrix - Image in HSV
-"""
-def convert_rgb_hsv(image: np.matrix) -> np.matrix:
-    # Conversion function
-    return mpcolors.rgb_to_hsv(image)
+
+
+def find_middlepoint():
+    pass
 
 
 if __name__ == "__main__":
-    pass
+    seed = imageio.imread(seed_path)
