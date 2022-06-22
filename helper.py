@@ -6,7 +6,7 @@ def convert_RGB_to_gray(image, red_weight=0.07, green_weight=0.72, blue_weight=0
     return grayScaleImage
 
 
-def generate_image_median_filter(initialImage, filterSize):
+def median_filter(initialImage, filterSize):
     N, M = initialImage.shape
     a = (filterSize-1)//2
 
