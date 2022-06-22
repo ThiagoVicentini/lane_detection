@@ -2,9 +2,11 @@ import imageio
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.colors as mpcolors
-
+from helper import generate_image_median_filter, convert_RGB_to_gray, differential_filter
 
 seed_path = ""
+image_test_path = "dataset_examples/um_000003.png" 
+debug = True
 
 """
 Define HSV filtering interval
@@ -44,4 +46,19 @@ def find_middlepoint():
 
 
 if __name__ == "__main__":
-    seed = imageio.imread(seed_path)
+    if debug:
+        image = imageio.imread(image_test_path)
+        grayImage = convert_RGB_to_gray(image)
+        filtered_image = generate_image_median_filter(grayImage, 5)
+        filtered_image = differential_filter(filtered_image)
+
+        fig = plt.figure()
+        plt.subplot(131)
+        plt.imshow(image)
+        plt.subplot(132)
+        plt.imshow(grayImage)
+        plt.subplot(133)
+        plt.imshow(filtered_image)
+        plt.show()
+    else:
+        seed = imageio.imread(seed_path)
