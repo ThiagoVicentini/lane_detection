@@ -24,9 +24,10 @@ def median_filter(initialImage, filterSize):
 
 def differential_filter(image):
     w = np.matrix([[ 0, -1,  0], 
-                        [-1,  4, -1], 
-                        [ 0, -1,  0]])
+                   [-1,  4, -1], 
+                   [ 0, -1,  0]])
 
+    # apply convolution of the image with the differential filter
     N, M = image.shape
     n, m = w.shape
     
