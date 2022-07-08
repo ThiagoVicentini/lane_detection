@@ -6,21 +6,22 @@ def convert_RGB_to_gray(image, red_weight=0.07, green_weight=0.72, blue_weight=0
     return grayScaleImage
 
 
-def median_filter(initialImage, filterSize):
-    N, M = initialImage.shape
-    a = (filterSize-1)//2
+def median_filter(initial_image, filter_size):
+    N, M = initial_image.shape
+    a = (filter_size - 1) // 2
 
     padding = (a, a)
-    paddedImg = np.pad(initialImage, (padding, padding), 'constant')
-    outputImage = np.zeros(initialImage.shape)
+    padded_image = np.pad(initial_image, (padding, padding), 'constant')
+    output_image = np.zeros(initial_image.shape)
 
     for x in range(a, N+a):
         for y in range(a, M+a):
-            sub_f = paddedImg[ x-a: x+a+1, y-a: y+a+1 ]
-            windowSorted = np.sort(sub_f, axis=None)
-            outputImage[x-a][y-a] = windowSorted[len(windowSorted)//2]
+            sub_f = padded_image[x-a: x+a+1, y-a: y+a+1]
+            window_sorted = np.sort(sub_f, axis=None)
+            output_image[x-a][y-a] = window_sorted[len(window_sorted)//2]
 
-    return outputImage
+    return output_image
+
 
 def differential_filter(image):
     w = np.matrix([[ 0, -1,  0], 

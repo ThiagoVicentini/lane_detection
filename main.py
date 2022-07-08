@@ -8,6 +8,7 @@ from helper import convert_RGB_to_gray, median_filter, differential_filter
 seed_path = ""
 image_test_path = "dataset_examples/um_000003.png" 
 debug = True
+generate_seed = True
 
 """
 Define HSV filtering interval
@@ -39,8 +40,8 @@ def apply_mask(image: np.matrix, hsv_filters: list) -> None:
 
 def getWarpPerspective(image):
     imgSize = image.shape
-    perspective = cv2.getPerspective(src, dst)
-    return cv2.warpPerspective(image, perspective, imgSize)
+    # perspective = cv2.getPerspective(src, dst)
+    # return cv2.warpPerspective(image, perspective, imgSize)
 
 def gaussianFilter(image):
     return cv2.GaussianBlur(image, (5, 5), 0) # Atualizar tamanho do kernel se necessário
@@ -77,6 +78,10 @@ def find_middlepoint(contours):
 # Coletar o ponto médio
 
 if __name__ == "__main__":
+    if generate_seed:
+        from seedproc import update_mask
+        update_mask(image_test_path)
+        quit()
     if debug:
         image = imageio.imread(image_test_path)
         denoisedImage = gaussianFilter(image)
