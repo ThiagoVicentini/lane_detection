@@ -81,8 +81,7 @@ def update_mask(img, img_hsv, masks):
     print("Ending")
 
 
-def check_mask(image_path):
-    image = imageio.imread(image_path)
+def check_mask(image):
     image_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
     with open("mask.json") as mask_file:
         masks = json.load(mask_file)
