@@ -3,24 +3,20 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 import matplotlib.colors as mpcolors
-from helper import convert_RGB_to_gray, median_filter, differential_filter
+
+import improc
 
 seed_path = ""
 image_test_path = "dataset_examples/um_000003.png"
-masks_filename = "masks.json"
+masks_filename = "mask.json"
 debug = True
-generate_seed = True
+generate_seed = False
 
 """
 Define HSV filtering interval
 Array of dictionaries with mask intervals
 min and max define hue interval to be considered
 """
-hsv_filters = [{
-    # To be set by seeding method
-    "min": [0, 0, 0],
-    "max": [179, 179, 255]
-}]
 
 """
 Applies mask filtering in a given image
@@ -78,27 +74,33 @@ def find_middlepoint(contours):
 # Estimar a reta (interp linear?)
 # Coletar o ponto médio
 
+
 if __name__ == "__main__":
+    image = imageio.imread(image_test_path)
     if generate_seed:
         from seedproc import check_mask
-        check_mask(image_test_path)
+        check_mask(image)
         quit()
-    if debug:
-        image = imageio.imread(image_test_path)
-        denoisedImage = gaussianFilter(image)
-        hsvImage = mpcolors.rgb_to_hsv(denoisedImage)
-        binaryImage = binarizeHSVImage(hsvImage, hsv_filters[0])
-        contours = getContours(binaryImage)
-        print(contours)
-        testeImage = image
-        for contour in contours:
-            testeImage[contour] = 255
-        middleReference = find_middlepoint(contours)
-        
-        plt.imshow(image)
-        plt.subplot(121)
-        plt.imshow(binaryImage)
-        plt.subplot(122)
-        plt.show()
-    else:
-        seed = imageio.imread(seed_path)
+
+    processed_image = improc.detect_edges(image)
+
+    # if debug:
+    #     image = imageio.imread(image_test_path)
+    #     masked_image = imgproc.
+    #     denoisedImage = gaussianFilter(image)
+    #     hsvImage = mpcolors.rgb_to_hsv(denoisedImage)
+    #     binaryImage = binarizeHSVImage(hsvImage, hsv_filters[0])
+    #     contours = getContours(binaryImage)
+    #     print(contours)
+    #     testeImage = image
+    #     for contour in contours:
+    #         testeImage[contour] = 255
+    #     middleReference = find_middlepoint(contours)
+    #
+    #     plt.imshow(image)
+    #     plt.subplot(121)
+    #     plt.imshow(binaryImage)
+    #     plt.subplot(122)
+    #     plt.show()
+    # else:
+    #     seed = imageio.imread(seed_path)
