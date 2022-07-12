@@ -1,5 +1,6 @@
 import imageio
 
+import contour
 import improc
 
 seed_path = ""
@@ -18,6 +19,7 @@ if __name__ == "__main__":
 
     # Processes image to get lane edges
     processed_image = improc.detect_edges(image)
+    contour.find_contours(processed_image)
 
     # Encontrar os contornos (filtro diferencial)
     # Pegar o centro dos contornos

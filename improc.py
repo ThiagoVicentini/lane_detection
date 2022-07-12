@@ -71,5 +71,6 @@ def detect_edges(image, tresh_lower=50, tresh_upper=150):
     blurred_image = cv2.GaussianBlur(image_hsv, (5, 5), cv2.BORDER_DEFAULT)
     masked_image = mask_image(blurred_image)
     closed_masked_image = closing(masked_image)
-    edged_image = cv2.Canny(closed_masked_image, tresh_lower, tresh_upper)
+    canny_image = cv2.Canny(closed_masked_image, tresh_lower, tresh_upper)
+    edged_image = closing(canny_image)
     return edged_image
