@@ -6,7 +6,8 @@ import matplotlib.colors as mpcolors
 from helper import convert_RGB_to_gray, median_filter, differential_filter
 
 seed_path = ""
-image_test_path = "dataset_examples/um_000003.png" 
+image_test_path = "dataset_examples/um_000003.png"
+masks_filename = "masks.json"
 debug = True
 generate_seed = True
 
@@ -79,8 +80,8 @@ def find_middlepoint(contours):
 
 if __name__ == "__main__":
     if generate_seed:
-        from seedproc import update_mask
-        update_mask(image_test_path)
+        from seedproc import check_mask
+        check_mask(image_test_path)
         quit()
     if debug:
         image = imageio.imread(image_test_path)
