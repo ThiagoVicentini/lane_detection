@@ -22,7 +22,7 @@ def remove_mask(masks):
     """
     try:
         # Remove specified mask from array
-        idx = int(input(f"What mask do you want to remove? (1 - {len(masks) + 1})\n").strip())
+        idx = int(input(f"What mask do you want to remove? (1 - {len(masks)})\n").strip())
         removed_mask = masks.pop(idx - 1)
         ans = input(f"Removed mask {removed_mask}\nSave changes? [y/n]").strip()
         if ans.lower() == "y":
@@ -76,8 +76,8 @@ def update_mask(img, img_hsv, masks):
     cv2.resizeWindow("TrackedBars", 640, 240)
 
     # Create trackbars
-    cv2.createTrackbar("Hue Min", "TrackedBars", 0, 255, on_trackbar)
-    cv2.createTrackbar("Hue Max", "TrackedBars", 179, 255, on_trackbar)
+    cv2.createTrackbar("Hue Min", "TrackedBars", 0, 179, on_trackbar)
+    cv2.createTrackbar("Hue Max", "TrackedBars", 179, 179, on_trackbar)
     cv2.createTrackbar("Sat Min", "TrackedBars", 0, 255, on_trackbar)
     cv2.createTrackbar("Sat Max", "TrackedBars", 255, 255, on_trackbar)
     cv2.createTrackbar("Val Min", "TrackedBars", 0, 255, on_trackbar)
