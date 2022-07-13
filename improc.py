@@ -2,7 +2,6 @@ import cv2
 import json
 import numpy as np
 
-import helper
 from main import masks_filename
 
 
