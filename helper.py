@@ -1,4 +1,5 @@
 import numpy as np
+import cv2
 
 def convert_RGB_to_gray(image, red_weight=0.07, green_weight=0.72, blue_weight=0.21):
     grayScaleImage = red_weight*image[:,:,2] + green_weight*image[:,:,1] + blue_weight*image[:,:,0]
@@ -44,3 +45,8 @@ def differential_filter(image):
             g[x,y] = np.sum( np.multiply(sub_f, w_flip)).astype(np.uint8)
 
     return g
+
+
+def show_image(mat):
+    cv2.imshow("a", mat)
+    cv2.waitKey()
