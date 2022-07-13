@@ -2,6 +2,7 @@ import cv2
 import json
 import numpy as np
 
+import helper
 from main import masks_filename
 
 
@@ -68,9 +69,9 @@ def detect_edges(image, tresh_lower=50, tresh_upper=150):
     """
     cropped_image = crop_image(image)
     image_hsv = cv2.cvtColor(cropped_image, cv2.COLOR_BGR2HSV)
-    blurred_image = cv2.GaussianBlur(image_hsv, (5, 5), cv2.BORDER_DEFAULT)
-    masked_image = mask_image(blurred_image)
-    closed_masked_image = closing(masked_image)
+    masked_image = mask_image(image_hsv)
+    blurred_image = cv2.GaussianBlur(masked_image, (3, 3), 0)
+    closed_masked_image = closing(blurred_image)
     canny_image = cv2.Canny(closed_masked_image, tresh_lower, tresh_upper)
     edged_image = closing(canny_image)
     return edged_image
