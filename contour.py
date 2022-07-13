@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 
 
+# Minimum area that a contour must have
 AREA_THRESH = 10
 
 
@@ -24,13 +25,9 @@ def find_contours(image):
 
         epsilon = 0.01 * cv2.arcLength(contour, True)
         # Approximate by a polygon and force it to be convex
-
         approximated_contour = cv2.approxPolyDP(contour, epsilon, True)
         convex_contour = cv2.convexHull(approximated_contour)
         approximated_contours.append(convex_contour)
         cv2.drawContours(cont_image, [convex_contour], -1, (0, 255, 0), 1)
-
-    from helper import show_image
-    show_image(cont_image)
 
     return contours, cont_image
