@@ -59,8 +59,8 @@ def closing(image, kernel_size=None):
 def detect_edges(image, tresh_lower=50, tresh_upper=150):
     """
     Perform a series of operations in an input image to detect its edges
-    Image Cropping -> HSV Transform -> Gaussian Blur -> Binary Masking ->
-    -> Closing -> Canny Edge Detection
+    Image Cropping -> HSV Transform -> Binary Masking -> Gaussian Blur ->
+    -> Closing -> Canny Edge Detection -> Closing
     :param image: Input image
     :param tresh_lower: Lower canny threshold
     :param tresh_upper: Upper canny threshold

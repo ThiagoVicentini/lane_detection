@@ -4,8 +4,6 @@ import numpy as np
 
 from main import masks_filename
 
-# Function naming and structuring can be updated to improve readability!!
-
 # Global variables used in trackbars
 image = None
 image_hsv = None
