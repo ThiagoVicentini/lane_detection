@@ -13,7 +13,7 @@ def find_contours(image):
     :return: Contours array and corresponding image
     """
     # Perform contour detection
-    contours, _ = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    contours, _ = cv2.findContours(image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
     cont_image = np.zeros([image.shape[0], image.shape[1], 3])
 
     approximated_contours = []
