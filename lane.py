@@ -12,7 +12,7 @@ def find_lane_candidates():
 
 def find_lanes(contours, image):
     # Criar linhas que representam as faixas a partir dos contornos
-    pass
+    return 0, 0
 
 
 def find_lane_middlepoint():
