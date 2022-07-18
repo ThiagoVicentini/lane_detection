@@ -3,7 +3,14 @@
 ## Summary
 - [Objective](#objective)
 - [Input Images](#input-images)
-- [Step by Step](#step-by-step)
+- [Step by Step and Methods](#step-by-step)
+  * [Mask Creation](#mask-creation)
+  * [Image Pre-Processing](#pre-processing)
+  * [Edge Detection](#edge-detection)
+  * [Lane Detection](#lane-detection)
+  * [Middle Lane Detection](#middle-lane-detection)
+- [Results](#results)
+- [Group](#group-members-roles)
 
 ## <a id="objective"></a> Objective
 
