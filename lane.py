@@ -35,10 +35,10 @@ def find_lanes(contours, image):
     for point in road2:
         cv2.circle(new_image, (int(point[0]), int(point[1])), radius=0, color=(255, 0, 0), thickness=-1)
 
-    road1_average = np.average(road1[:, 0])
-    road2_average = np.average(road2[:, 0])
+    road1_average = np.average(road1[:, 1])
+    road2_average = np.average(road2[:, 1])
     center_road = 0
-    if abs(road1_average - center_x_coord) < abs(road2_average - center_x_coord):
+    if abs(road1_average - center_y_coord) < abs(road2_average - center_y_coord):
         center_road = road1
     else:
         center_road = road2
