@@ -7,7 +7,7 @@ import lane
 image_test_path = "dataset_examples/um_000052.png"
 masks_filename = "mask.json"
 generate_seed = False
-debug = True
+debug = False
 
 
 if __name__ == "__main__":
@@ -20,7 +20,8 @@ if __name__ == "__main__":
     # Processes image to get lane edges
     processed_image = improc.detect_edges(image)
     contours, cont_image = contour.find_contours(processed_image)
-    lane, lane_image = lane.find_lanes(contours, image)
+    center_road, lane_image = lane.find_lanes(contours, image)
+    center_point = lane.find_lane_middlepoint(center_road)
 
     if debug:
         from utils import show_image
