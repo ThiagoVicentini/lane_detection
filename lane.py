@@ -44,6 +44,7 @@ def find_lanes(contours, image):
         center_road = road2
     
     return center_road, new_image
+    
 
 def find_lane_middlepoint(center_road, image):
     """
