@@ -18,7 +18,7 @@ def find_lanes(contours, image):
         for vector in contour:
             for point in vector:
                 point_copy = point
-                point_copy = np.append(point_copy, point[0] - center_x_coord)
+                point_copy = np.append(point_copy, abs(point[0] - center_x_coord))
                 point_copy = np.append(point_copy, np.arctan2(point[1], abs(point[0] - center_x_coord))*180/np.pi)
                 points.append(point_copy)
     points = np.array(points)
@@ -39,9 +39,9 @@ def find_lanes(contours, image):
     road2_average = np.average(road2[:, 0])
     center_road = 0
     if abs(road1_average - center_x_coord) < abs(road2_average - center_x_coord):
-        center_road = road1_average
+        center_road = road1
     else:
-        center_road = road2_average
+        center_road = road2
     
     return center_road, new_image
 
@@ -50,11 +50,25 @@ def find_lane_middlepoint(center_road, image):
     Retuns line corresponding to the middle of the lane
     :return:
     """
+    new_image = np.array(image)
     center_x_coord = int(image.shape[0]/2)
     center_y_coord = int(image.shape[1]/2)
 
-    max_negative = np.inf
-    max_positive = -np.inf
+    max_negative_x = -np.inf
+    max_negative_y = 0
+    max_positive_x = np.inf
+    max_positive_y = 0
     for point in center_road:
-        if (point[0] - center_x_coord) < max_negative:
-            max_negative = point[0]
+        if (point[0] - center_x_coord) > max_negative_x:
+            max_negative_x = point[0]
+            max_negative_y = point[1]
+        if (point[0] - center_x_coord) < max_positive_x:
+            max_positive_x = point[0]
+            max_positive_y = point[1]
+    
+    x = (max_negative_x + max_positive_x)/2
+    y = (max_negative_y + max_positive_y)/2
+
+    cv2.circle(new_image, (int(x), int(y)), radius=0, color=(0, 255, 0), thickness=5)
+
+    return [x, y], new_image

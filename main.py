@@ -7,7 +7,7 @@ import lane
 image_test_path = "dataset_examples/um_000052.png"
 masks_filename = "mask.json"
 generate_seed = False
-debug = False
+debug = True
 
 
 if __name__ == "__main__":
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     processed_image = improc.detect_edges(image)
     contours, cont_image = contour.find_contours(processed_image)
     center_road, lane_image = lane.find_lanes(contours, image)
-    center_point = lane.find_lane_middlepoint(center_road)
+    center_point, center_image = lane.find_lane_middlepoint(center_road, lane_image)
 
     if debug:
         from utils import show_image
@@ -29,3 +29,5 @@ if __name__ == "__main__":
         show_image(processed_image, "Masked image")
         show_image(cont_image, "Convex contours")
         show_image(lane_image, "Lanes")
+        show_image(center_image, "Lane with center")
+        
