@@ -18,7 +18,7 @@ The main objective of the project is to design an algorithm that is capable of i
 road lanes in a given input image. The program must also find the midpoint of the road 
 in order to feed a possible control algorithm for autonomous vehicles.
 
-## <a id="input-images"></a> Input Images
+## Input Images
 
 Input images will be road acquired images by real vehicles. 
 The dataset chosed by the development team is the 
@@ -34,7 +34,7 @@ Other datasets found:
 - [CULane](https://xingangpan.github.io/projects/CULane.html)
 
 
-## <a id="step-by-step"></a> Step by Step and Methods
+## Step by Step and Methods
 
 In order to achieve what has been proposed, the group developed a deterministic algorithm using OpenCV and SKLearn libraries
 that can be split into separate models: Mask creation, image pre-processing, edge detection, lane detection and middle lane
@@ -67,7 +67,11 @@ A threshold algorithm is then applied to only show parts of the image that fall 
 
 The binary image than recieves a gaussian blur and a closing transformation.
 
-<b> IMAGES </b>
+![](img/cropped.jpeg)
+
+![](img/binary.jpeg)
+
+![](img/blurred.jpeg)
 
 ### Edge Detection
 
@@ -75,10 +79,12 @@ In order to detect the edges of the image, a canny edge detection algorithm is t
 closed a closing algorithm is applied again. The edged image is passed to a contour creation algorithm from OpenCV, witch
 transforms the pixels into a list of points, corresponding to the contours.
 
+![](img/edged.jpeg)
+
 Said contours are then filtered by size (small contours are assumed to be noise) and forced to be convex to be easily
 identified and processed.
 
-<b> IMAGES </b>
+![](img/contours.jpeg)
 
 ### Lane Detection
 
@@ -92,7 +98,8 @@ find the correspondence between the contours and the proper lane.
 
 ## Results
 
-
+Finally, we can assume that the group found a consistent and robust algorithm to detect lanes using several
+methods and transformations shown during the semester.
 
 ## Group Members Roles
 
