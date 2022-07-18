@@ -1,22 +1,31 @@
 # Final Project Report
 
 ## Summary
-- [Objective](#objective)
-- [Input Images](#input-images)
-- [Step by Step and Methods](#step-by-step)
-  * [Mask Creation](#mask-creation)
-  * [Image Pre-Processing](#pre-processing)
-  * [Edge Detection](#edge-detection)
-  * [Lane Detection](#lane-detection)
-  * [Middle Lane Detection](#middle-lane-detection)
-- [Results](#results)
-- [Group](#group-members-roles)
+- [Final Project Report](#final-project-report)
+  - [Summary](#summary)
+  - [<a id="objective"></a> Objective](#-objective)
+  - [Setup](#setup)
+  - [Input Images](#input-images)
+  - [Step by Step and Methods](#step-by-step-and-methods)
+    - [Mask Creation](#mask-creation)
+    - [Image Pre-Processing](#image-pre-processing)
+    - [Edge Detection](#edge-detection)
+    - [Lane Detection](#lane-detection)
+    - [Middle Lane Detection](#middle-lane-detection)
+  - [Results](#results)
+  - [Group Members Roles](#group-members-roles)
 
 ## <a id="objective"></a> Objective
 
 The main objective of the project is to design an algorithm that is capable of identifying 
 road lanes in a given input image. The program must also find the midpoint of the road 
 in order to feed a possible control algorithm for autonomous vehicles.
+
+## Setup
+
+This project depends on the use of two main libraries: OpenCV and SKLearn. They can be installed via ```pip install -r requirements.txt```.
+
+To run the project, one should use ```python3 main.py```
 
 ## Input Images
 
