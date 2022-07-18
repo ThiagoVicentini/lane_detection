@@ -8,6 +8,6 @@ def show_image(image, name="Image"):
     :param name: Image name
     :return: None
     """
-    print(f"Showing {image}, press any key to close")
+    print(f"Showing {name}, press any key to close")
     cv2.imshow(name, image)
     cv2.waitKey()
