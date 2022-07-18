@@ -1,26 +1,17 @@
 # Final Project Report
 
 ## Summary
-- [Goal](#objective-div-idobjectivediv)
+- [Objective](#objective)
 - [Input Images](#input-images)
-- [Group](#goal)
-- [Initial Development](#initial-development)
-    * [Previously Intended Next Steps](#intended-next-steps)
-- [What We Actually Did Next](#next-steps)
-    * [Image Processing Pipeline](#pipeline)
-    * [Training Tesseract](#training)
-    * [System Output](#output)
-- [Results](#results)
-- [Conclusion](#references)
-- [References](#references)
+- [Step by Step](#step-by-step)
 
-## Objective <div id="objective"></div>
+## <a id="objective"></a> Objective
 
 The main objective of the project is to design an algorithm that is capable of identifying 
 road lanes in a given input image. The program must also find the midpoint of the road 
 in order to feed a possible control algorithm for autonomous vehicles.
 
-## Input Images
+## <a id="input-images"></a> Input Images
 
 Input images will be road acquired images by real vehicles. 
 The dataset chosed by the development team is the 
@@ -36,7 +27,7 @@ Other datasets found:
 - [CULane](https://xingangpan.github.io/projects/CULane.html)
 
 
-## Step by Step and Methods
+## <a id="step-by-step"></a> Step by Step and Methods
 
 In order to achieve what has been proposed, the group developed a deterministic algorithm using OpenCV and SKLearn libraries
 that can be split into separate models: Mask creation, image pre-processing, edge detection, lane detection and middle lane
@@ -51,7 +42,7 @@ illumination, etc.
 The idea is that the user can input a starting mask to the algorithm and this fixed mask will apply to all following frames.
 The mask is nothing more than an array of values that specify minimum and maximum HSV values that define a certain lane.
 
-<b> IMAGES </b>
+![](img/mask.jpeg)
 
 The array of masks is stored in ```mask.json``` and is referenced during image processing.
 
