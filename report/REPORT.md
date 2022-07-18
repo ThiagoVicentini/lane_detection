@@ -23,7 +23,7 @@ in order to feed a possible control algorithm for autonomous vehicles.
 
 ## Setup
 
-This project depends on the use of two main libraries: OpenCV and SKLearn. They can be installed via ```pip install -r requirements.txt```.
+This project depends on the use of two main libraries: ```OpenCV``` and ```SKLearn```. To show images on the notebook, ```Matplotlib``` was also used. They can be installed via ```pip install -r requirements.txt```.
 
 To run the project, one should use ```python3 main.py```
 

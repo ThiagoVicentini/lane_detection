@@ -2,3 +2,4 @@ numpy
 imageio
 opencv-python
 sklearn
+matplotlib
